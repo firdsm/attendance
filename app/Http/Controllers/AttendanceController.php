@@ -95,6 +95,7 @@ class AttendanceController extends Controller
                 'workhours' => null,
                 'description' => null
             ]);
+            echo 'sukses';
         } elseif ($auth == 'exist'){
             echo 'masuk';
         } elseif ($auth == 'sick'){
