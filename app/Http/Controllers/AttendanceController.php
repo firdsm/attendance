@@ -54,7 +54,6 @@ class AttendanceController extends Controller
     public function permit(Request $request)
     {
         $today = Carbon::now(+7)->toDateString();
-        $now = Carbon::now(+7)->toTimeString();
         $auth = $this->authAttendance($request->reg);
         $empl = Employee::where('reg_number', $request->reg)->first();
         if ($auth == 'notyet'){
@@ -62,9 +61,9 @@ class AttendanceController extends Controller
                 'employee_id' => $empl->id,
                 'work_id' => 2,
                 'work_date' => $today,
-                'time_in' => $now,
-                'time_out' => $now,
-                'workhours' => null,
+                'time_in' => '00:00:00',
+                'time_out' => '00:00:00',
+                'workhours' => 0,
                 'description' => $request->desc
             ]);
             echo 'sukses';
@@ -82,7 +81,6 @@ class AttendanceController extends Controller
     public function sick(Request $request)
     {
         $today = Carbon::now(+7)->toDateString();
-        $now = Carbon::now(+7)->toTimeString();
         $auth = $this->authAttendance($request->reg);
         $empl = Employee::where('reg_number', $request->reg)->first();
         if ($auth == 'notyet'){
@@ -90,9 +88,9 @@ class AttendanceController extends Controller
                 'employee_id' => $empl->id,
                 'work_id' => 3,
                 'work_date' => $today,
-                'time_in' => $now,
-                'time_out' => $now,
-                'workhours' => null,
+                'time_in' => '00:00:00',
+                'time_out' => '00:00:00',
+                'workhours' => 0,
                 'description' => null
             ]);
             echo 'sukses';
@@ -109,7 +107,31 @@ class AttendanceController extends Controller
 
     public function remote(Request $request)
     {
-
+        $today = Carbon::now(+7)->toDateString();
+        $now = '09:00:00';
+        $later = '18:00:00';
+        $auth = $this->authAttendance($request->reg);
+        $empl = Employee::where('reg_number', $request->reg)->first();
+        if ($auth == 'notyet'){
+            Attendance::create([
+                'employee_id' => $empl->id,
+                'work_id' => 4,
+                'work_date' => $today,
+                'time_in' => $now,
+                'time_out' => $later,
+                'workhours' => 540,
+                'description' => null
+            ]);
+            echo 'sukses';
+        } elseif ($auth == 'exist'){
+            echo 'masuk';
+        } elseif ($auth == 'sick'){
+            echo 'sakit';
+        } elseif ($auth == 'permit'){
+            echo 'ijin';
+        } else {
+            echo 'remote';
+        }
     }
 
     public function authEmployee(Request $request)

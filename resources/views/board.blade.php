@@ -115,13 +115,13 @@
                 <div class="row">&nbsp;</div>
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-6">
-                        <a href="#" title="Absen kerja remote" class="social-icon remote"><i>&nbsp;</i></a>
+                        <a id="remote" title="Absen kerja remote" class="social-icon remote"><i>&nbsp;</i></a>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-6">
-                        <a href="#" title="Login ke Attendance Manage" class="social-icon login"><i>&nbsp;</i></a>
+                        <a href="/login" title="Login ke Attendance Manage" class="social-icon login"><i>&nbsp;</i></a>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-6">
-                        <a href="#" title="Hubungkan ke Github" class="social-icon github"><i>&nbsp;</i></a>
+                        <a href="https://github.com/Kicky13/attendance.git" title="Lihat Projek di Github" class="social-icon github"><i>&nbsp;</i></a>
                     </div>
                 </div>
                 <div class="row">&nbsp;</div>
