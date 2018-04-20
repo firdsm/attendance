@@ -67,6 +67,7 @@ class AttendanceController extends Controller
                 'workhours' => null,
                 'description' => $request->desc
             ]);
+            echo 'sukses';
         } elseif ($auth == 'exist'){
             echo 'masuk';
         } elseif ($auth == 'permit'){

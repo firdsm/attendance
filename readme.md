@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## About Attendance
+
+Attendance is a management system for work absences offline or online. Here's how to install Attendance app:
+
+- git clone.
+- composer update.
+- Setup your database to your own (Database example: attendance.sql).
+- Run on your online/local server.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:

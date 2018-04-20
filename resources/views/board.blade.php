@@ -241,7 +241,42 @@
                 swal('ERROR', 'Field nomor register dan deskripsi harus diisi', 'error');
                 return false;
             } else {
-                swal('IJIN', 'Ijin berhasil dilakukan', 'success');
+                $.ajax({
+                    url: '/employeeauth',
+                    method: 'GET',
+                    data: {
+                        reg: $('#ijinreg').val()
+                    }
+                }).done(function (data) {
+                    console.log(data);
+                    if (data == 1){
+                        $.ajax({
+                            url: '/permit',
+                            method: 'POST',
+                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                            data: {
+                                reg: $('#ijinreg').val(),
+                                desc: $('#ijindesc').val()
+                            }
+                        }).done(function (data) {
+                            if (data == 'sukses'){
+                                swal('IJIN BERHASIL', 'Anda ijin untuk hari ini', 'success');
+                            } else if (data == 'masuk') {
+                                swal('ERROR', 'Anda telah absen kehadiran sebelumnya', 'warning');
+                            } else if (data == 'ijin') {
+                                swal('ERROR', 'Pengajuan ijin telah dilakukan sebelumnya', 'warning');
+                            } else if (data == 'sakit') {
+                                swal('ERROR', 'Pengajuan sakit telah dilakukan sebelumnya', 'warning');
+                            } else if (data == 'remote') {
+                                swal('ERROR', 'Absen remote telah dilakukan sebelumnya', 'warning');
+                            } else {
+                                swal('ERROR', data, 'info');
+                            }
+                        });
+                    } else {
+                        swal('ERROR', 'Nomor Register yang anda inputkan salah', 'error');
+                    }
+                });
             }
         });
         $('#sick').click(function () {
