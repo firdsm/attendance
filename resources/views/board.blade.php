@@ -187,9 +187,6 @@
 <script>
     $(document).ready(function () {
         console.log('ready');
-        $('#absenreg').keyup(function () {
-           console.log('Nomor Reg ganti');
-        });
         $('#absen').click(function () {
             console.log('Clicked');
             var absenreg = $('#absenreg').val();
@@ -220,6 +217,14 @@
                                 swal('ABSENSI BERHASIL', 'Terima Kasih anda masuk kerja hari ini', 'success');
                             } else if (data == 'pulang') {
                                 swal('PULAANG!!!', 'Terima Kasih telah bekerja hari ini', 'success');
+                            } else if (data == 'ijin') {
+                                swal('ERROR', 'Pengajuan ijin telah dilakukan sebelumnya', 'warning');
+                            } else if (data == 'sakit') {
+                                swal('ERROR', 'Pengajuan sakit telah dilakukan sebelumnya', 'warning');
+                            } else if (data == 'remote') {
+                                swal('ERROR', 'Absen remote telah dilakukan sebelumnya', 'warning');
+                            } else {
+                                swal('ERROR', data, 'info');
                             }
                         });
                     } else {
