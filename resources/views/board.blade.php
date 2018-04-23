@@ -46,8 +46,8 @@
             <div class="col-md-2 hero-phone visible-xs-block visible-sm-block">
                 <div class="row">
                     <div class="col-md-12 hero-title">
-                        <h2>Guess what? We're,</h2>
-                        <img src="/landpage/img/coming-soon.png" alt="Coming soon!"/>
+                        <h2>Hey Please, Let's</h2>
+                        <img src="/landpage/img/attendance-today.png" alt="Coming soon!"/>
                     </div>
                 </div>
             </div>

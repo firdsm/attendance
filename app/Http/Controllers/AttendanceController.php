@@ -6,7 +6,6 @@ use App\Attendance;
 use App\Employee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends Controller
 {
