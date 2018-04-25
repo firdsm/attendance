@@ -244,7 +244,7 @@ demo = {
          });
 
          $('.datepicker').datetimepicker({
-            format: 'MM/DD/YYYY',
+            format: 'YYYY/MM/DD',
             icons: {
                 time: "fa fa-clock-o",
                 date: "fa fa-calendar",
@@ -282,18 +282,25 @@ demo = {
         // Code for the Validator
         var $validator = $('.wizard-card form').validate({
     		  rules: {
-    		    firstname: {
+    		    username: {
     		      required: true,
     		      minlength: 3
     		    },
-    		    lastname: {
+    		    password: {
     		      required: true,
-    		      minlength: 3
+    		      minlength: 6
     		    },
-    		    email: {
+    		    photo: {
+    		      required: true
+    		    },
+                regnumber: {
     		      required: true,
-    		      minlength: 3,
-    		    }
+                  minlength: 6
+                },
+                name: {
+    		      required: true,
+                  minlength: 3
+                }
             },
 
             errorPlacement: function(error, element) {

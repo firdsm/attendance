@@ -46,7 +46,7 @@
 
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="/adminpage/img/sidebar-1.jpg">
+    <div class="sidebar" data-active-color="blue" data-background-color="black" data-image="/adminpage/img/sidebar-1.jpg">
         <!--
     Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
     Tip 2: you can also add an image using data-image tag
@@ -69,7 +69,7 @@
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                        Tania Andrew
+                        {{ \Illuminate\Support\Facades\Auth::user()->username }}
                         <b class="caret"></b>
                     </a>
                     <div class="collapse" id="collapseExample">
@@ -123,8 +123,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"> Admin Manage </a>
+                    <a class="navbar-brand" href="#"> Logged as Administrator </a>
                 </div>
+                @yield('addbutton')
+                @yield('loadedTab')
             </div>
         </nav>
         @yield('content')
@@ -203,14 +205,6 @@
 <script src="/adminpage/js/material-dashboard.js"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="/adminpage/js/demo.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-        demo.initVectorMap();
-    });
-</script>
+@yield('script')
 
 </html>

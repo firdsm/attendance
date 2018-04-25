@@ -15,19 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->role_id == 1){
-            return $this->admin();
+            return view('admin.index');
         } else {
-            return $this->employee();
+            return view('employee.index');
         }
-    }
-
-    private function admin()
-    {
-        return view('admin.dashboard');
-    }
-
-    private function employee()
-    {
-        return view('employee.dashboard');
     }
 }

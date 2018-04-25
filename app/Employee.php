@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     protected $table = 'employee';
+    public $timestamps = false;
 
     protected $fillable = [
         'user_id',
         'reg_number',
         'name',
         'job',
-        'address'
+        'since',
+        'address',
+        'photo',
     ];
-
-    public $timestamps = false;
 
     public function user()
     {

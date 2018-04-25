@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Report extends Model
 {
     protected $table = 'report';
+    public $timestamps = false;
 
     protected $fillable = [
         'employee_id',
@@ -18,10 +19,8 @@ class Report extends Model
         'remote_total',
         'permit_total',
         'sick_total',
-        'alpha_total'
+        'absence_total'
     ];
-
-    public $timestamps = false;
 
     public function employee()
     {

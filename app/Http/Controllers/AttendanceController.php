@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Attendance;
-use App\Employee;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Employee;
+use App\Attendance;
+use Carbon\Carbon;
+
 
 class AttendanceController extends Controller
 {
     public function insertWorkhours($id, $hours)
     {
         Attendance::find($id)->update([
-           'workhours' =>  $hours
+            'workhours' =>  $hours
         ]);
         return true;
     }
