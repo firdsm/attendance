@@ -20,4 +20,10 @@ class HomeController extends Controller
             return view('employee.index');
         }
     }
+    
+    public function countNumber($number1, $number2){
+        $sum = $number1 + $number2;
+        
+        return $sum;
+    }
 }
